@@ -17,6 +17,21 @@
 
 **작품의 특징:크롤링을 이용하여 뉴스를 출력**
 
+### [04/13]
+데이트 피커를 이용한 캘린더 작업
+class DateViewController: UIViewController {
+    @IBOutlet weak var datePicker: UIDatePicker!
+    let dateFormatter: DateFormatter = {
+        let formatter: DateFormatter = DateFormatter()
+        formatter.dateFormat = "yyy/MM/dd"
+        return formatter
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+    }
 
 ### [04/06]
 기획서 알람,뉴스,쪽을 마무리 함 <br>
