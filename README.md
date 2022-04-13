@@ -19,6 +19,7 @@
 
 ### [04/13]
 데이트 피커를 이용한 캘린더 작업
+```
 class DateViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     let dateFormatter: DateFormatter = {
@@ -32,6 +33,9 @@ class DateViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+```
+데이트피커를 상속받아 IBOutlet을 만들고 날짜를 받아온다
 
 ### [04/06]
 기획서 알람,뉴스,쪽을 마무리 함 <br>
