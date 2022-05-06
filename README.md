@@ -17,6 +17,49 @@
 
 **작품의 특징:크롤링을 이용하여 뉴스를 출력**
 
+## [05/04]
+json 파싱을 하기위한 구조체
+
+```swift
+struct Papago: Codable {
+        let message: Message
+    }
+    struct Message: Codable {
+        let result: Result
+    }
+    struct Result: Codable{
+        let translatedText: String
+        let srcLangType: String
+        let tarLangType: String
+    }
+```
+
+```swift
+if error == nil && data != nil {
+                let decoder = JSONDecoder()
+                do{
+                    let decodedData = try decoder.decode(Papago.self, from: data!)
+                    
+                    print(decodedData)
+                    DispatchQueue.main.async {
+                        self.textLabel.text = decodedData.message.result.translatedText
+                        
+                    }
+                }catch{
+                    print("error")
+                }
+            }
+            //통신 실패
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+        task.resume()
+    }
+```
+
+json 파싱
+
 ### [04/13]
 데이트 피커를 이용한 캘린더 작업
 ```
