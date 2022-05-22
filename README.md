@@ -18,7 +18,7 @@
 **작품의 특징:크롤링을 이용하여 뉴스를 출력**
 
 ## [05/18]
-캘린더 
+캘린더 일기 
 
 ```swift
 class CalenderViewController: UIViewController {
