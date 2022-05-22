@@ -17,6 +17,78 @@
 
 **작품의 특징:크롤링을 이용하여 뉴스를 출력**
 
+## [05/18]
+캘린더 
+
+```swift
+class CalenderViewController: UIViewController {
+    
+    @IBOutlet weak var itemLabel: UILabel!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
+    var date = dateFormatter.string(from: Date())
+    
+    
+    private let realm = try! Realm()
+ 
+    static let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        return dateFormatter
+    }()
+    
+
+    override func viewWillAppear(_ animated: Bool) {
+        let list = realm.objects(diaryItem.self).filter("date == '\(date)'")
+        for item2 in list{
+            itemLabel?.text! = "\(item2.item)"
+        }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let list = realm.objects(diaryItem.self).filter("date == '\(date)'")
+        for item2 in list{
+            itemLabel?.text! = "\(item2.item)"
+        }
+
+        let tap = UITapGestureRecognizer(target: self, action: #selector(CalenderViewController.tapItemLabel))
+        itemLabel.isUserInteractionEnabled = true
+        itemLabel.addGestureRecognizer(tap)
+
+    }
+    
+    @objc func tapItemLabel(sender:UITapGestureRecognizer){
+        
+        guard let vc = storyboard?.instantiateViewController(identifier: "view") as? CalenderViewViewController else{
+            return
+        }
+        vc.dataDate = date
+        vc.navigationItem.largeTitleDisplayMode = .never
+      
+        navigationController?.pushViewController(vc, animated: true)
+        
+     
+        
+        }
+    
+    @IBAction func didDatePickerValueChanged(_ sender: UIDatePicker){
+       
+        self.date = Self.dateFormatter.string(from: datePicker!.date)
+        let list = realm.objects(diaryItem.self).filter("date == '\(date)'")
+        
+        if list.count == 0{
+            itemLabel?.text! = "내용을 입력해주세요"
+        }else{
+            for item2 in list{
+                itemLabel?.text! = "\(item2.item)"
+            }
+        }
+
+    }
+```
+
 ## [05/04]
 json 파싱을 하기위한 구조체
 
