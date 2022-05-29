@@ -18,6 +18,42 @@
 **작품의 특징:크롤링을 이용하여 뉴스를 출력**
 
 ## [05/18]
+realmSwift :Realm은 모바일에 특화된 NoSQL 데이터베이스 <br>
+대표적인 특징으로는 ORM이 아닌 데이터 컨테이너 모델을 사용하고, 데이터 객체를 Realm에 객체 형태로 저장합니다. 그렇기 때문에 DB에서 가져온 데이터를 복잡한 가공과정 없이 바로 사용할 수 있다는 장점이 있습니다. <br>
+
+```pod 'RealmSwift', '~>10'
+pod install
+```
+
+swiftsoup:  웹 크롤링을 할 수 있게 하는 라이브러리입니다.
+
+```let imagesrc: Elements = try doc.select("div#carMainImgArea.img_group").select("div.main_img").select("img[src]")
+
+let stringImage = try imagesrc.attr("src").description
+
+let urlImage = URL(string: stringImage)
+
+
+let data = try Data(contentsOf: urlImage!)
+
+carImage.image = UIImage(data: data) // UI 세팅
+```
+
+```
+class Phonebook: Object {
+    @Persisted(PrimaryKey: true) var number: String? // primary key로 지정
+    @Persisted var name: String = ""
+    @Persisted var status: String = ""
+
+    convenience init(number: String) {
+        self.init()
+        self.number = number
+    }
+}
+```
+
+
+## [05/18]
 캘린더 일기 
 
 ```swift
