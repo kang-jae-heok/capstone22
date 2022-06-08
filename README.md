@@ -4,7 +4,7 @@
 
 **팀명: 스윗프트(sweetft) <br>
 이름: 강재혁(App-)** <br>
-**졸업작품 소개 사이트:https://son6840.github.io/SweeftCapstone/** <br> 
+**졸업작품 소개 사이트:https://kang-jae-heok.github.io/SweetftWeb//** <br> 
 **포트폴리오 소개 사이트:**
 
 ### [졸업작품 소개]
